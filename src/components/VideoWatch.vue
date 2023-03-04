@@ -28,15 +28,17 @@ import { videoPlayer } from "vue-video-player";
 export default {
   name: "VideoWatch",
   components: { videoPlayer },
+
   data() {
     return {};
   },
+
   computed: {
     videos() {
       const data = this.$store.state.videos.find(
         (vid) => vid.id == this.$route.params.id
       );
-      return data;
+      return data || {};
     },
     playerOptions() {
       return {
@@ -55,9 +57,7 @@ export default {
       return this.$refs.videoPlayer.player;
     },
   },
-  mounted() {
-    console.log("this is current player instance object", this.player);
-  },
+
   methods: {
     // listen event
     onPlayerPlay(player) {

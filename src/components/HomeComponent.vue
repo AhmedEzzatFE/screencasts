@@ -19,11 +19,13 @@
 <script>
 export default {
   name: "HomeComponent",
+  
+  methods: {},
   components: {},
-  data() {
-    return {
-      videos: this.$store.state.videos,
-    };
+  computed: {
+    videos() {
+      return this.$store.state.videos;
+    },
   },
 };
 </script>
